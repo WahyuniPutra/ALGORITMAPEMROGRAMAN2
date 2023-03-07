@@ -16,8 +16,7 @@ public class Data_Tabel {
 		System.out.println("=====================================");
 		System.out.println("------------ Daftar Mobil -----------");
 		System.out.println("=====================================");
-		System.out.println(
-				"1. Jaguar\n2. Lamborgini\n3. Honda\n4. Audi\n5. Suzuki\n6. Mazda\n7. Daihatsu\n8. Ford\n9. Hyundai\n10. Mitsubishi");
+		System.out.println("1. Jaguar\n2. Lamborgini\n3. Honda\n4. Audi\n5. Suzuki\n6. Mazda\n7. Daihatsu\n8. Ford\n9. Hyundai\n10. Mitsubishi");
 		System.out.println("=====================================");
 	}
 
@@ -45,7 +44,7 @@ public class Data_Tabel {
 			System.out.println("");
 		} else {
 			System.out.println("");
-			System.out.println("Data Mobil " + produk + " Tidak Ditemukan!");
+			System.out.println("Data Mobil Tidak Ditemukan!");
 		}
 	}
 
@@ -56,19 +55,28 @@ public class Data_Tabel {
 		long[] harga = { 1340000000, 34500000000L, 350000000, 2000000000, 245000000, 500000000, 169000000, 789000000,
 				122900000, 278100000 };
 		System.out.println("");
-		long tmp;
-		for (int c = 1; c < 10; c++) {
-			for (int d = 0; d < 10 - c; d++) {
-				if (harga[d] > harga[d + 1]) {
-					tmp = harga[d];
-					harga[d] = harga[d + 1];
-					harga[d + 1] = tmp;
+        int n = harga.length;
+        long temp = 0;
+        String tempStr = "";
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < (n - i); j++) {
+                if (harga[j - 1] > harga[j]) {
+                    // swap harga
+                    temp = harga[j - 1];
+                    harga[j - 1] = harga[j];
+                    harga[j] = temp;
+
+                    // swap produk
+                    tempStr = produk[j - 1];
+                    produk[j - 1] = produk[j];
+                    produk[j] = tempStr;
 				}
 			}
 		}
 		System.out.println("Urutan Termurah Hingga Termahal");
 		for (int i = 0; i < 10; i++) {
-			System.out.println("Produk Mobil " + produk[i] + " Seharga Rp. " + harga[i]);
+			System.out.println("Produk Mobil " +produk[i]+ " Seharga Rp. " + harga[i]);
 		}
 	}
 
@@ -90,7 +98,7 @@ public class Data_Tabel {
 		if (find) {
 			System.out.println("");
 			System.out.println("Harga Mobil Termurah Ke-2");
-			System.out.println("Brand Mobil " + produk[i] + " Seharga" + search);
+			System.out.println("Brand Mobil " + produk[i] + " Seharga " + search);
 		} else {
 			System.out.println("Data Tidak DItemukan!");
 		}
